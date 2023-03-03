@@ -2,12 +2,14 @@ import axios from 'axios'
 import {addFile, deleteFileAction, setFiles} from "../reducers/fileReducer";
 
 
+
 export function createDir(dirId, name) {
+    console.log(dirId,name)
     return async dispatch => {
         try {
             const response = await axios.post(`http://91.193.183.139:7000/drive/folder`,{
                 name,
-                parent: dirId,
+                parentId: dirId,
                 type: 'dir'
             }, {
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
@@ -61,4 +63,13 @@ export function deleteFile(file) {
         }
     }
 }
+export async function getFiles(dirId,setter) {
+    let res = await axios.get(`http://91.193.183.139:7000/drive/folder/${dirId}`,{
+        headers:{
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    }).then(res=>setter(res.data))
+    return res
 
+
+}

@@ -22,8 +22,8 @@ function App() {
                 <div className="wrap">
                     {!isAuth ?
                         <Switch>
-                            <Route path="/auth/register" component={Registration}/>
-                            <Route path="/auth/login" component={Login}/>
+                            <Route path="/registration" component={Registration}/>
+                            <Route path="/login" component={Login}/>
                             <Redirect to='/login'/>
                         </Switch>
                         :

@@ -3,7 +3,6 @@ import './fileList.css'
 
 const FileList = () => {
 
-
     return (
         <div className='filelist'>
             <div className="filelist__header">
@@ -12,6 +11,7 @@ const FileList = () => {
                 <div className="filelist__size">Размер</div>
             </div>
         </div>
+
     );
 };
 
